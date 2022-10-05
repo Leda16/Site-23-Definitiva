@@ -1,4 +1,4 @@
-Site de registros 23 -
+Site de registros 23
     Ideias:
         Registro de usuarios com SQL ✅
         Registro de Todos os registros atuais ✅
