@@ -18,4 +18,4 @@
         Organizar Codigo ✅
         Registros de BOPM e Multar com envio e analise de fotos 🟨
         Adicionar INSERT de IMG pelo SQL 🟨
-        Conectividade com o Discord / Nao ta funcionando no site🟨s
+        Conectividade com o Discord / Nao ta funcionando no sites🟨
