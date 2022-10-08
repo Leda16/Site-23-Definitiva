@@ -12,8 +12,8 @@
     // print_r('<br>');
     // print_r('horas: '.$_POST['horas']);
 
-    include_once('../config.php');
-
+    include_once('../../server/config.php');
+    
     $qra = $_POST['qra'];
     $motivo = $_POST['motivo'];
     $valor = $_POST['valor'];
@@ -45,7 +45,7 @@
             <h1>Registros 23</h1>
 
             <div class="menu">
-                <a href="../afterpage.php" >Inicio</a>
+                <a href="afterpage.php" >Inicio</a>
                 <a href="folha-ponto.php">Folha-Ponto</a>
                 <a href="bo-pm.php">BO-PM</a>
                 <a href="acoes.php">Acoes</a>

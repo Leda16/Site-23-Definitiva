@@ -12,16 +12,15 @@
     // print_r('<br>');
     // print_r('horas: '.$_POST['horas']);
 
-    include_once('../config.php');
-
+    include_once('../../server/config.php');
+    
     $qra = $_POST['qra'];
-    $cpf = $_POST['cpf'];
-    $motivo = $_POST['motivo'];
-    $multa = $_POST['multa'];
-    $link = $_POST['link'];
+    $retirado = $_POST['retirado'];
+    $colocado = $_POST['colocado'];
+    $perdido = $_POST['perdido'];
 
-    $result = mysqli_query($conexao, "INSERT INTO veiculos(qra,cpf,motivo,multa,link) 
-    VALUES ('$qra','$cpf','$motivo','$multa','$link')");
+    $result = mysqli_query($conexao, "INSERT INTO bau(qra,retirado,colocado,perdido) 
+    VALUES ('$qra','$retirado','$colocado','$perdido')");
 
   }
 
@@ -35,7 +34,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros 23 | Veiculos</title>
+    <title>Registros 23 | Registro-Bau</title>
 
     <link rel="stylesheet" href="registro.css">
 </head>
@@ -46,14 +45,14 @@
             <h1>Registros 23</h1>
 
             <div class="menu">
-                <a href="../afterpage.php" >Inicio</a>
+                <a href="afterpage.php" >Inicio</a>
                 <a href="folha-ponto.php">Folha-Ponto</a>
                 <a href="bo-pm.php">BO-PM</a>
                 <a href="acoes.php">Acoes</a>
                 <a href="multas.php">Multas</a>
                 <a href="apreensao.php">Apreensao</a>
-                <a href="veiculos.php" class="is-active">Veiculos</a>
-                <a href="registro-bau.php">Registro-Bau</a>
+                <a href="veiculos.php">Veiculos</a>
+                <a href="registro-bau.php" class="is-active">Registro-Bau</a>
             </div>
     
             <button class="hamburger">
@@ -66,22 +65,20 @@
 
     <!-- Formulario POST PHP to SQL -->
 
-    <form action="veiculos.php" method="POST" class="relatorio">
+    <form action="registro-bau.php" method="POST" class="relatorio">
         <h2 class="title">Relatorio</h2>
           <input name="qra" type="text" placeholder="QRA" />
           <br>
-          <input name="cpf" type="text" placeholder="CPF" />
+          <input name="retirado" type="text" placeholder="Retirado" />
           <br>
-          <input name="motivo" type="text" placeholder="Motivo" />
+          <input name="colocado" type="text" placeholder="Colocado" />
           <br>
-          <input name="multa" type="text" placeholder="Total da multa" />
-          <br>
-          <input name="link" type="text" placeholder="Link Lightshot" />
+          <input name="perdido" type="text" placeholder="Perdido" />
           <br>
           <input name="submit" type="submit" class="btn" value="Registrar" />
       </form>
 
-    <!-- ScriptJS HAMBURGER -->
+    <!-- ScriptJS HAMBURGER -->    
     <script src="registro.js"></script>
 
 </body>

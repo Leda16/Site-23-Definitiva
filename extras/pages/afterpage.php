@@ -5,7 +5,7 @@
     {
         unset($_SESSION['upuser']);
         unset($_SESSION['uppasswd']);
-        header('Location: landpage.php');
+        header('Location: ../../index.php');
     }
     $logado = $_SESSION['upuser'];
 ?>
@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registros 23 | Inicio</title>
 
-    <link rel="stylesheet" href="css/afterpage.css">
+    <link rel="stylesheet" href="../../css/afterpage.css">
 </head>
 <body>
     
@@ -30,19 +30,14 @@
 
             <div class="menu">
                 <a href="afterpage.php" class="is-active">Inicio</a>
-                <a href="pages/folha-ponto.php">Folha-Ponto</a>
-                <a href="pages/bo-pm.php">BO-PM</a>
-                <a href="pages/acoes.php">Acoes</a>
-                <a href="pages/multas.php">Multas</a>
-                <a href="pages/apreensao.php">Apreensao</a>
-                <a href="pages/veiculos.php">Veiculos</a>
-                <a href="pages/registro-bau.php">Registro-Bau</a>
+                <a href="folha-ponto.php">Folha-Ponto</a>
+                <a href="bo-pm.php">BO-PM</a>
+                <a href="acoes.php">Acoes</a>
+                <a href="multas.php">Multas</a>
+                <a href="apreensao.php">Apreensao</a>
+                <a href="veiculos.php">Veiculos</a>
+                <a href="registro-bau.php">Registro-Bau</a>
             </div>
-
-            <!-- BOTAO SAIR OFF POR ENQUANTO -->
-            <!-- <div class="sair">
-                <a href="sair.php">Sair</a>
-            </div> -->
 
             <button class="hamburger">
                 <span></span>
@@ -52,7 +47,7 @@
         </div>
     </nav>
 
-    <img src="img/coronel-inicio.png" class="imgs">
-    <script src="scripts/afterpage.js"></script>
+    <img src="../img/coronel-inicio.png" class="imgs">
+    <script src="../scripts/afterpage.js"></script>
 </body>
 </html>

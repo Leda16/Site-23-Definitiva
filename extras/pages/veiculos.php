@@ -12,17 +12,16 @@
     // print_r('<br>');
     // print_r('horas: '.$_POST['horas']);
 
-    include_once('../config.php');
-
-    $nbopm = $_POST['nbopm'];
-    $nomerg = $_POST['nomerg'];
-    $guarnicao = $_POST['guarnicao'];
-    $policiais = $_POST['policiais'];
-    $fatos = $_POST['fatos'];
+    include_once('../../server/config.php');
+    
+    $qra = $_POST['qra'];
+    $cpf = $_POST['cpf'];
+    $motivo = $_POST['motivo'];
+    $multa = $_POST['multa'];
     $link = $_POST['link'];
 
-    $result = mysqli_query($conexao, "INSERT INTO bopm(nbopm,nomerg,guarnicao,policiais,fatos,link) 
-    VALUES ('$nbopm','$nomerg','$guarnicao','$policiais','$fatos','$link')");
+    $result = mysqli_query($conexao, "INSERT INTO veiculos(qra,cpf,motivo,multa,link) 
+    VALUES ('$qra','$cpf','$motivo','$multa','$link')");
 
   }
 
@@ -36,7 +35,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros 23 | BO-PM</title>
+    <title>Registros 23 | Veiculos</title>
 
     <link rel="stylesheet" href="registro.css">
 </head>
@@ -47,13 +46,13 @@
             <h1>Registros 23</h1>
 
             <div class="menu">
-                <a href="../afterpage.php" >Inicio</a>
+                <a href="afterpage.php" >Inicio</a>
                 <a href="folha-ponto.php">Folha-Ponto</a>
-                <a href="bo-pm.php" class="is-active">BO-PM</a>
+                <a href="bo-pm.php">BO-PM</a>
                 <a href="acoes.php">Acoes</a>
                 <a href="multas.php">Multas</a>
                 <a href="apreensao.php">Apreensao</a>
-                <a href="veiculos.php">Veiculos</a>
+                <a href="veiculos.php" class="is-active">Veiculos</a>
                 <a href="registro-bau.php">Registro-Bau</a>
             </div>
     
@@ -67,22 +66,21 @@
 
     <!-- Formulario POST PHP to SQL -->
 
-    <form action="bo-pm.php" method="POST" class="relatorio">
+    <form action="veiculos.php" method="POST" class="relatorio">
         <h2 class="title">Relatorio</h2>
-          <input name="nbopm" type="text" placeholder="N-BOPM" />
+          <input name="qra" type="text" placeholder="QRA" />
           <br>
-          <input name="nomerg" type="text" placeholder="NOME/RG" />
+          <input name="cpf" type="text" placeholder="CPF" />
           <br>
-          <input name="guarnicao" type="text" placeholder="Guarnicao" />
+          <input name="motivo" type="text" placeholder="Motivo" />
           <br>
-          <input name="policiais" type="text" placeholder="Policiais" />
-          <br>
-          <input name="fatos" type="text" placeholder="Fatos" />
+          <input name="multa" type="text" placeholder="Total da multa" />
           <br>
           <input name="link" type="text" placeholder="Link Lightshot" />
           <br>
           <input name="submit" type="submit" class="btn" value="Registrar" />
       </form>
+
     <!-- ScriptJS HAMBURGER -->
     <script src="registro.js"></script>
 

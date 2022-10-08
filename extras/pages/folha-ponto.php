@@ -12,16 +12,16 @@
     // print_r('<br>');
     // print_r('horas: '.$_POST['horas']);
 
-    include_once('../config.php');
-
+    include_once('../../server/config.php');
+    
     $qra = $_POST['qra'];
-    $retirado = $_POST['retirado'];
-    $colocado = $_POST['colocado'];
-    $perdido = $_POST['perdido'];
+    $data = $_POST['data'];
+    $entrada = $_POST['entrada'];
+    $saida = $_POST['saida'];
+    $horas = $_POST['horas'];
 
-    $result = mysqli_query($conexao, "INSERT INTO bau(qra,retirado,colocado,perdido) 
-    VALUES ('$qra','$retirado','$colocado','$perdido')");
-
+    $result = mysqli_query($conexao, "INSERT INTO folha(qra,data,entrada,saida,horas) 
+    VALUES ('$qra','$data','$entrada','$saida','$horas')");
   }
 
 ?>
@@ -34,7 +34,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros 23 | Registro-Bau</title>
+    <title>Registros 23 | Folha-Ponto</title>
 
     <link rel="stylesheet" href="registro.css">
 </head>
@@ -45,14 +45,14 @@
             <h1>Registros 23</h1>
 
             <div class="menu">
-                <a href="../afterpage.php" >Inicio</a>
-                <a href="folha-ponto.php">Folha-Ponto</a>
+                <a href="afterpage.php" >Inicio</a>
+                <a href="folha-ponto.php" class="is-active">Folha-Ponto</a>
                 <a href="bo-pm.php">BO-PM</a>
                 <a href="acoes.php">Acoes</a>
                 <a href="multas.php">Multas</a>
                 <a href="apreensao.php">Apreensao</a>
                 <a href="veiculos.php">Veiculos</a>
-                <a href="registro-bau.php" class="is-active">Registro-Bau</a>
+                <a href="registro-bau.php">Registro-Bau</a>
             </div>
     
             <button class="hamburger">
@@ -65,21 +65,28 @@
 
     <!-- Formulario POST PHP to SQL -->
 
-    <form action="registro-bau.php" method="POST" class="relatorio">
+    <form action="folha-ponto.php" method="POST" class="relatorio">
         <h2 class="title">Relatorio</h2>
           <input name="qra" type="text" placeholder="QRA" />
           <br>
-          <input name="retirado" type="text" placeholder="Retirado" />
+          <input name="data" type="datetime" placeholder="Data" />
           <br>
-          <input name="colocado" type="text" placeholder="Colocado" />
+          <input name="entrada" type="text" placeholder="Entrada" />
           <br>
-          <input name="perdido" type="text" placeholder="Perdido" />
+          <input name="saida" type="text" placeholder="Saida" />
+          <br>
+          <input name="horas" type="text" placeholder="Horas trabalhadas" />
           <br>
           <input name="submit" type="submit" class="btn" value="Registrar" />
-      </form>
-
-    <!-- ScriptJS HAMBURGER -->    
+        </form>
+    
+    <!-- ScriptJS HAMBURGER -->
     <script src="registro.js"></script>
+
+            <?php
+
+            
+            ?>
 
 </body>
 </html>
