@@ -13,6 +13,9 @@
     <title>Registros 23 | Entrar & Registrar</title>
   </head>
   <body>
+
+    <div id="preloader"></div>
+
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
@@ -102,6 +105,13 @@
       </div>
     </div>
 
-    <script src="scripts/landpage.js"></script>
+    <script>
+      var loader = document.getElementById("preloader");
+
+      window.addEventListener("load", function(){
+          loader.style.display = "none";
+      })
+    </script>
+
   </body>
 </html>
