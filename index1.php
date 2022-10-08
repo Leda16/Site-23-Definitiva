@@ -62,7 +62,7 @@
               </a>
             </div>
           </form>
-          <form action="index.php" method="POST" class="sign-up-form">
+          <form action="index1.php" method="POST" class="sign-up-form">
             <h2 class="title">Registrar</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
