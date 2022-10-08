@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registros 23 | Inicio</title>
 
-    <link rel="stylesheet" href="../../css/afterpage.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -73,7 +73,7 @@
                     </div>
                 </nav>
 
-                <img src="coronel-inicio.png" class="imgs">
+
             </div>
 
 
@@ -86,6 +86,8 @@
         })
 
     </script>
+
+    <img src="../img/coronel-inicio.png" class="imgs">
 
     <script src="../scripts/afterpage.js"></script>
 </body>
