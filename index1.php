@@ -32,6 +32,38 @@
     <title>Registros 23 | Entrar & Registrar</title>
   </head>
   <body>
+  <div id="preloader">
+<link rel="stylesheet" href="style.css">
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <div class="ring"></div>
+                <p>Carregando<span class="auto-type"></span></p>
+
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+                <script>
+                    var typed = new Typed('.auto-type', {
+                    strings: [".", "..", "..."],
+                    typeSpeed: 30,
+                    backSpeed: 150,
+                    loop: true
+                    })
+                </script>
+                <div style="display: none;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5d_Zx3AaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5d_Zx3AaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Yf5d_Zx3AaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <script>
+
+var loader = document.getElementById("preloader");
+
+window.addEventListener("load", function(){
+    loader.style.display = "none";
+})
+
+</script>
+            </div>
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
@@ -46,23 +78,9 @@
               <input name="uppasswd" type="password" placeholder="Senha" />
             </div>
             <input name="login" type="submit" value="Entrar" class="btn solid" />
-            <p class="social-text">Tente entrar de outro jeito.</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
+            
           </form>
-          <form action="index1.php" method="POST" class="sign-up-form">
+          <form action="index.php" method="POST" class="sign-up-form">
             <h2 class="title">Registrar</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -73,21 +91,7 @@
               <input name="uppasswd" type="password" placeholder="Senha" />
             </div>
             <input name="submit" type="submit" class="btn" value="Registrar" />
-            <p class="social-text">Tente se registrar de outro jeito.</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
+            
           </form>
         </div>
       </div>

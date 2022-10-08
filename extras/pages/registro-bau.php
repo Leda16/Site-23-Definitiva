@@ -1,5 +1,15 @@
-<!-- INPUT DE DADOS DO BANCO DE DADOS -->
 <?php
+    session_start();
+    // print_r($_SESSION);
+    if((isset($_SESSION['upuser']) == true) and (!isset($_SESSION['uppasswd']) == true))
+    {
+        unset($_SESSION['upuser']);
+        unset($_SESSION['uppasswd']);
+        header('Location: ../../index.php');
+    }
+    $quem = $_SESSION['upuser'];
+
+// <!-- INPUT DE DADOS DO BANCO DE DADOS -->
   if(isset($_POST['submit']))
   {
     // print_r('qra: '.$_POST['qra']);
@@ -18,9 +28,11 @@
     $retirado = $_POST['retirado'];
     $colocado = $_POST['colocado'];
     $perdido = $_POST['perdido'];
+    $quem = $_POST['quem'];
+    $quando = $_POST['quando'];
 
-    $result = mysqli_query($conexao, "INSERT INTO bau(qra,retirado,colocado,perdido) 
-    VALUES ('$qra','$retirado','$colocado','$perdido')");
+    $result = mysqli_query($conexao, "INSERT INTO bau(qra,retirado,colocado,perdido,quem,quando) 
+    VALUES ('$qra','$retirado','$colocado','$perdido','$quem','$quando')");
 
   }
 
@@ -39,8 +51,9 @@
     <link rel="stylesheet" href="registro.css">
 </head>
 <body>
-    
+
     <nav>
+    <div class="bemvindo" style="color: white; font-weight: bold;">Bem Vindo! <strong style="color: white;"><?php echo $quem;?></strong> | Hoje é: <?php echo date('d/m/Y');?></div>
         <div class="container">
             <h1>Registros 23</h1>
 
@@ -74,6 +87,10 @@
           <input name="colocado" type="text" placeholder="Colocado" />
           <br>
           <input name="perdido" type="text" placeholder="Perdido" />
+          <br>
+          <input name="quem" type="datetime" value="<?php echo $quem;?>" />
+          <br>
+          <input name="quando" type="datetime" value="<?php echo date('d/m/Y');?>" />
           <br>
           <input name="submit" type="submit" class="btn" value="Registrar" />
       </form>

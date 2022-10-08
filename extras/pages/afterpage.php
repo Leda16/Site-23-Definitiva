@@ -28,13 +28,13 @@
                 <div class="ring"></div>
                 <div class="ring"></div>
                 <div class="ring"></div>
-                <p><span class="auto-type"></span></p>
+                <p>Carregando<span class="auto-type"></span></p>
 
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
                 <script>
                     var typed = new Typed('.auto-type', {
-                    strings: ["Carregando.", "Carregando..", "Carregando..."],
+                    strings: [".", "..", "..."],
                     typeSpeed: 30,
                     backSpeed: 150,
                     loop: true

@@ -1,5 +1,15 @@
-<!-- INPUT DE DADOS DO BANCO DE DADOS -->
 <?php
+    session_start();
+    // print_r($_SESSION);
+    if((isset($_SESSION['upuser']) == true) and (!isset($_SESSION['uppasswd']) == true))
+    {
+        unset($_SESSION['upuser']);
+        unset($_SESSION['uppasswd']);
+        header('Location: ../../index.php');
+    }
+    $quem = $_SESSION['upuser'];
+
+// <!-- INPUT DE DADOS DO BANCO DE DADOS -->
   if(isset($_POST['submit']))
   {
     // print_r('qra: '.$_POST['qra']);
@@ -19,9 +29,11 @@
     $entrada = $_POST['entrada'];
     $saida = $_POST['saida'];
     $horas = $_POST['horas'];
+    $quem = $_POST['quem'];
+    $quando = $_POST['quando'];
 
-    $result = mysqli_query($conexao, "INSERT INTO folha(qra,data,entrada,saida,horas) 
-    VALUES ('$qra','$data','$entrada','$saida','$horas')");
+    $result = mysqli_query($conexao, "INSERT INTO folha(qra,data,entrada,saida,horas,quem,quando) 
+    VALUES ('$qra','$data','$entrada','$saida','$horas','$quem','$quando')");
   }
 
 ?>
@@ -39,8 +51,9 @@
     <link rel="stylesheet" href="registro.css">
 </head>
 <body>
-    
+
     <nav>
+    <div class="bemvindo" style="color: white; font-weight: bold;">Bem Vindo! <strong style="color: white;"><?php echo $quem;?></strong> | Hoje é: <?php echo date('d/m/Y');?></div>
         <div class="container">
             <h1>Registros 23</h1>
 
@@ -76,6 +89,10 @@
           <input name="saida" type="text" placeholder="Saida" />
           <br>
           <input name="horas" type="text" placeholder="Horas trabalhadas" />
+          <br>
+          <input name="quem" type="datetime" value="<?php echo $quem;?>" />
+          <br>
+          <input name="quando" type="datetime" value="<?php echo date('d/m/Y');?>" />
           <br>
           <input name="submit" type="submit" class="btn" value="Registrar" />
         </form>

@@ -25,7 +25,7 @@ session_start();
             // print_r('Nao existe esse usuario');
             unset($_SESSION['upuser']);
             unset($_SESSION['uppasswd']);
-            header('Location: ../index1.php');
+            header('Location: ../index.php');
         }
         else
         {
@@ -38,7 +38,7 @@ session_start();
     else
     {
         // Nao acessa
-        header('Location: ../index1.php');
+        header('Location: ../index.php');
     }
 
 ?>
