@@ -25,20 +25,20 @@ session_start();
             // print_r('Nao existe esse usuario');
             unset($_SESSION['upuser']);
             unset($_SESSION['uppasswd']);
-            header('Location: ../index.php');
+            header('Location: /../index.php');
         }
         else
         {
             // print_r('Existe');
             $_SESSION['upuser'] = $upuser;
             $_SESSION['uppasswd'] = $uppasswd;
-            header('Location: ../extras/pages/afterpage.php');
+            header('Location: /../pages/home.php');
         }
     }
     else
     {
         // Nao acessa
-        header('Location: ../index.php');
+        header('Location: /../index.php');
     }
 
 ?>

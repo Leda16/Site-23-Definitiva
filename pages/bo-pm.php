@@ -5,7 +5,7 @@
     {
         unset($_SESSION['upuser']);
         unset($_SESSION['uppasswd']);
-        header('Location: ../../index.php');
+        header('Location: ../index.php');
     }
     $quem = $_SESSION['upuser'];
 
@@ -22,7 +22,7 @@
     // print_r('<br>');
     // print_r('horas: '.$_POST['horas']);
 
-    include_once('../../server/config.php');
+    include_once('../server/config.php');
 
     $nbopm = $_POST['nbopm'];
     $nomerg = $_POST['nomerg'];
@@ -43,14 +43,25 @@
 <!-- Pagina HTML5 , CSS/registro.css  -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros 23 | BO-PM</title>
 
-    <link rel="stylesheet" href="registro.css">
+
+    <!-- Meta Keys Inicias -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Site de registros do 23BPM FiveM, Guarulhos Infinity">
+    <meta name="keywords" content="Registros 23, 23 BPM, 23, Guarulhos Infinity, 23 FiveM">
+    <meta name="author" content="Artur Leda">
+
+    <!-- CSSs Import -->
+    <link rel="stylesheet" href="../styles/registro.css" />
+
+    <!-- Dados Importantes de Cabecalho -->
+    <title>Registros 23 | BO-PM</title>
+    <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
+
+
 </head>
 <body>
 
@@ -60,7 +71,7 @@
             <h1>Registros 23</h1>
 
             <div class="menu">
-                <a href="afterpage.php" >Inicio</a>
+                <a href="home.php" >Inicio</a>
                 <a href="folha-ponto.php">Folha-Ponto</a>
                 <a href="bo-pm.php" class="is-active">BO-PM</a>
                 <a href="acoes.php">Acoes</a>
@@ -94,9 +105,9 @@
           <br>
           <input name="link" type="text" placeholder="Link Lightshot" />
           <br>
-          <input name="quem" type="datetime" value="<?php echo $quem;?>" />
+          <input style="display: none;" name="quem" type="datetime" value="<?php echo $quem;?>" />
           <br>
-          <input name="quando" type="datetime" value="<?php echo date('d/m/Y');?>" />
+          <input style="display: none;" name="quando" type="datetime" value="<?php echo date('d/m/Y');?>" />
           <br>
           <input name="submit" type="submit" class="btn" value="Registrar" />
       </form>

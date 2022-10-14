@@ -5,7 +5,7 @@
     {
         unset($_SESSION['upuser']);
         unset($_SESSION['uppasswd']);
-        header('Location: ../../index.php');
+        header('Location: ../index.php');
     }
     $quem = $_SESSION['upuser'];
 
@@ -22,17 +22,17 @@
     // print_r('<br>');
     // print_r('horas: '.$_POST['horas']);
 
-    include_once('../../server/config.php');
+    include_once('../server/config.php');
     
     $qra = $_POST['qra'];
-    $retirado = $_POST['retirado'];
-    $colocado = $_POST['colocado'];
-    $perdido = $_POST['perdido'];
+    $motivo = $_POST['motivo'];
+    $valor = $_POST['valor'];
+    $link = $_POST['link'];
     $quem = $_POST['quem'];
     $quando = $_POST['quando'];
 
-    $result = mysqli_query($conexao, "INSERT INTO bau(qra,retirado,colocado,perdido,quem,quando) 
-    VALUES ('$qra','$retirado','$colocado','$perdido','$quem','$quando')");
+    $result = mysqli_query($conexao, "INSERT INTO multas(qra,motivo,valor,link,quem,quando) 
+    VALUES ('$qra','$motivo','$valor','$link','$quem','$quando')");
 
   }
 
@@ -41,14 +41,25 @@
 <!-- Pagina HTML5 , CSS/registro.css  -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registros 23 | Registro-Bau</title>
 
-    <link rel="stylesheet" href="registro.css">
+
+    <!-- Meta Keys Inicias -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Site de registros do 23BPM FiveM, Guarulhos Infinity">
+    <meta name="keywords" content="Registros 23, 23 BPM, 23, Guarulhos Infinity, 23 FiveM">
+    <meta name="author" content="Artur Leda">
+
+    <!-- CSSs Import -->
+    <link rel="stylesheet" href="../styles/registro.css" />
+
+    <!-- Dados Importantes de Cabecalho -->
+    <title>Registros 23 | Multas</title>
+    <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
+
+
 </head>
 <body>
 
@@ -58,14 +69,14 @@
             <h1>Registros 23</h1>
 
             <div class="menu">
-                <a href="afterpage.php" >Inicio</a>
+                <a href="home.php" >Inicio</a>
                 <a href="folha-ponto.php">Folha-Ponto</a>
                 <a href="bo-pm.php">BO-PM</a>
                 <a href="acoes.php">Acoes</a>
-                <a href="multas.php">Multas</a>
+                <a href="multas.php" class="is-active">Multas</a>
                 <a href="apreensao.php">Apreensao</a>
                 <a href="veiculos.php">Veiculos</a>
-                <a href="registro-bau.php" class="is-active">Registro-Bau</a>
+                <a href="registro-bau.php">Registro-Bau</a>
             </div>
     
             <button class="hamburger">
@@ -78,24 +89,23 @@
 
     <!-- Formulario POST PHP to SQL -->
 
-    <form action="registro-bau.php" method="POST" class="relatorio">
+    <form action="multas.php" method="POST" class="relatorio">
         <h2 class="title">Relatorio</h2>
           <input name="qra" type="text" placeholder="QRA" />
           <br>
-          <input name="retirado" type="text" placeholder="Retirado" />
+          <input name="motivo" type="text" placeholder="Motivo" />
           <br>
-          <input name="colocado" type="text" placeholder="Colocado" />
+          <input name="valor" type="text" placeholder="Valor" />
           <br>
-          <input name="perdido" type="text" placeholder="Perdido" />
+          <input name="link" type="text" placeholder="Link Lightshot" />
           <br>
-          <input name="quem" type="datetime" value="<?php echo $quem;?>" />
+          <input style="display: none;" name="quem" type="datetime" value="<?php echo $quem;?>" />
           <br>
-          <input name="quando" type="datetime" value="<?php echo date('d/m/Y');?>" />
+          <input style="display: none;" name="quando" type="datetime" value="<?php echo date('d/m/Y');?>" />
           <br>
           <input name="submit" type="submit" class="btn" value="Registrar" />
       </form>
-
-    <!-- ScriptJS HAMBURGER -->    
+    <!-- ScriptJS HAMBURGER -->
     <script src="registro.js"></script>
 
 </body>
